@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Achieve</string>
+    <string name="tab_text_1">My Goals</string>
+    <string name="tab_text_2">Inspiration</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
