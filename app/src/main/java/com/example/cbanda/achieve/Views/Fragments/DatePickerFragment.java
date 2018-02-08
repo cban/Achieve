@@ -5,11 +5,6 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.widget.DatePicker;
-import android.widget.EditText;
-
-import com.example.cbanda.achieve.MainActivity;
-import com.example.cbanda.achieve.R;
 
 import java.util.Calendar;
 

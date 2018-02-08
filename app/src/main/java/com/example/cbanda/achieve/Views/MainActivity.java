@@ -1,4 +1,4 @@
-package com.example.cbanda.achieve;
+package com.example.cbanda.achieve.Views;
 
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+
+import com.example.cbanda.achieve.R;
 
 public class MainActivity extends AppCompatActivity {
 
