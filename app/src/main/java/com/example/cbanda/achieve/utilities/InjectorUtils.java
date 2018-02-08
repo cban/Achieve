@@ -1,14 +1,11 @@
-package com.example.cbanda.achieve.Utilities;
+package com.example.cbanda.achieve.utilities;
 
 import android.content.Context;
 
-import com.example.cbanda.achieve.Models.Repository.GoalRepository;
-import com.example.cbanda.achieve.Models.Repository.GoalRepositoryImpl;
-import com.example.cbanda.achieve.Models.db.GoalDatabase;
+import com.example.cbanda.achieve.models.db.GoalDatabase;
+import com.example.cbanda.achieve.models.repository.GoalRepository;
+import com.example.cbanda.achieve.models.repository.GoalRepositoryImpl;
 
-/**
- * Created by CBanda on 2018/02/08.
- */
 
 public class InjectorUtils {
 

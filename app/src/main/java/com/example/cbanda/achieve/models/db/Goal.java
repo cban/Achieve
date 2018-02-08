@@ -1,17 +1,15 @@
-package com.example.cbanda.achieve.Models.db;
+package com.example.cbanda.achieve.models.db;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
-import com.example.cbanda.achieve.Models.db.Converters.DateConverter;
+import com.example.cbanda.achieve.models.db.converters.DateConverter;
 
 import java.util.Date;
 
-/**
- * Created by CBanda on 2018/02/07.
- */
-@Entity (tableName = "goals")
+
+@Entity(tableName = "goals")
 public class Goal {
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -22,10 +20,12 @@ public class Goal {
     @TypeConverters(DateConverter.class)
     private Date endDate;
 
-    public int getId() { return id;}
-    public void setId(int id)
-    {
-    this.id=id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescription() {

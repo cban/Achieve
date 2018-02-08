@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout"
@@ -14,7 +12,7 @@
         android:layout_height="wrap_content"
 
 
-        tools:context="com.example.cbanda.achieve.Views.AddGoalActivity"
+        tools:context="com.example.cbanda.achieve.ui.add.AddGoalActivity"
         tools:showIn="@layout/activity_add_goal">
 
 
@@ -26,7 +24,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/priority_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decription_edittext"
             tools:text="Priority" />
 
         <TextView
@@ -87,11 +85,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/description_label"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priority_radioGroup"
-            tools:text="Brief Description" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="Enter Your Goal" />
 
         <EditText
             android:id="@+id/decription_edittext"
@@ -99,9 +99,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="textMultiLine"
+            android:labelFor="@+id/description_textview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_textview" />
@@ -113,35 +114,32 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/decription_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/priority_radioGroup"
             tools:text="Deadline" />
 
-        <EditText
+        <Button
             android:id="@+id/startDateEditText"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:focusable="false"
-            android:ems="10"
-            android:hint="@string/select_start_date"
-            android:inputType="text"
             android:onClick="selectStartAndEndDate"
+            android:text="@string/select_start_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deadline_textView" />
 
-        <EditText
+        <Button
             android:id="@+id/endDateEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:focusable="false"
-            android:ems="10"
+            android:text="@string/select_end_date"
             android:hint="@string/select_end_date"
-            android:inputType="none"
+
             android:onClick="selectStartAndEndDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,6 +159,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/endDateEditText" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/app_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher_round" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

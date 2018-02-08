@@ -1,8 +1,8 @@
-package com.example.cbanda.achieve.Models.Repository;
+package com.example.cbanda.achieve.models.repository;
 
 import android.arch.lifecycle.LiveData;
 
-import com.example.cbanda.achieve.Models.db.Goal;
+import com.example.cbanda.achieve.models.db.Goal;
 
 import java.util.List;
 

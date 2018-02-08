@@ -1,24 +1,21 @@
-package com.example.cbanda.achieve.Models.db;
+package com.example.cbanda.achieve.models.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
-/**
- * Created by CBanda on 2018/02/07.
- */
 @Dao
 public interface GoalDao {
 
     @Query("SELECT * from goals")
     LiveData<List<Goal>> getListGoals();
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addGoal(Goal goal);
 
 }

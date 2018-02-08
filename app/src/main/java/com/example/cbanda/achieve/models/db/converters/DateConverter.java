@@ -1,4 +1,4 @@
-package com.example.cbanda.achieve.Models.db.Converters;
+package com.example.cbanda.achieve.models.db.converters;
 
 import android.arch.persistence.room.TypeConverter;
 
