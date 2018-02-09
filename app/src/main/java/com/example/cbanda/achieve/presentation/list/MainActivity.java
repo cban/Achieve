@@ -1,4 +1,4 @@
-package com.example.cbanda.achieve.ui.list;
+package com.example.cbanda.achieve.presentation.list;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

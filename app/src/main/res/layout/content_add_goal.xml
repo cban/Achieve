@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
 
 
-        tools:context="com.example.cbanda.achieve.ui.add.AddGoalActivity"
+        tools:context="com.example.cbanda.achieve.presentation.add.AddGoalActivity"
         tools:showIn="@layout/activity_add_goal">
 
 
@@ -118,32 +118,31 @@
             tools:text="Deadline" />
 
         <Button
-            android:id="@+id/startDateEditText"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/startDateButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:onClick="selectStartAndEndDate"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:text="@string/select_start_date"
+            android:onClick="selectStartAndEndDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deadline_textView" />
 
         <Button
-            android:id="@+id/endDateEditText"
+            android:id="@+id/endDateButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="@string/select_end_date"
             android:hint="@string/select_end_date"
 
             android:onClick="selectStartAndEndDate"
+            android:text="@string/select_end_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/startDateButton" />
 
         <Button
             android:id="@+id/save_button"
@@ -158,7 +157,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/endDateEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/endDateButton" />
 
         <ImageView
             android:id="@+id/imageView"

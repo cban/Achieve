@@ -1,4 +1,4 @@
-package com.example.cbanda.achieve.ui.add;
+package com.example.cbanda.achieve.presentation.add;
 
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
@@ -35,15 +35,13 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
         setSupportActionBar(toolbar);
 
         goalDescriptionEditText = findViewById(R.id.decription_edittext);
-        startDateButton = findViewById(R.id.startDateEditText);
-        endDateButton = findViewById(R.id.endDateEditText);
+        startDateButton = findViewById(R.id.startDateButton);
+        endDateButton = findViewById(R.id.endDateButton);
         saveButton = findViewById(R.id.save_button);
         priorityRadioGroup = findViewById(R.id.priority_radioGroup);
-
         datePickerFragment = new DatePickerFragment();
-
         addGoalViewModel = ViewModelProviders.of(this).get(AddGoalViewModel.class);
-
+        SaveToDb();
     }
 
     public String getRadioButtonText() {
@@ -60,34 +58,32 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
             @Override
             public void onClick(View v) {
                 String goalDescription = goalDescriptionEditText.getText().toString();
-                //addGoalViewModel.addGoal(briefDescription,getRadioButtonText(),);
+                addGoalViewModel.setGoalDescription(goalDescription);
+                addGoalViewModel.setPrioritySelected(getRadioButtonText());
+                addGoalViewModel.addGoal();
+
                 finish();
             }
         });
     }
 
-    public void showDatePickerDialog(View v) {
+    public void showDatePickerDialog() {
         datePickerFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     public void selectStartAndEndDate(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.startDateEditText:
-                startDateButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        datePickerFragment.setFlag(DatePickerFragment.FLAG_START_DATE);
-                        showDatePickerDialog(v);
+            case R.id.startDateButton:
+                datePickerFragment.setFlag(DatePickerFragment.FLAG_START_DATE);
+                showDatePickerDialog();
 
-                    }
-                });
-            case R.id.endDateEditText:
+            case R.id.endDateButton:
                 endDateButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         datePickerFragment.setFlag(DatePickerFragment.FLAG_END_DATE);
-                        showDatePickerDialog(v);
+                        showDatePickerDialog();
 
                     }
                 });
@@ -100,12 +96,19 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, dayOfMonth);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        // DateTime dt = new DateTime(calendar.getTime());
+
 
         if (datePickerFragment.getFlag() == DatePickerFragment.FLAG_START_DATE) {
+            ;
             startDateButton.setText(format.format(calendar.getTime()));
+            addGoalViewModel.setSelectedStartDate(calendar.getTime());
 
         } else {
             endDateButton.setText(format.format(calendar.getTime()));
+            addGoalViewModel.setSelectedEndDate(calendar.getTime());
         }
     }
+
+
 }
