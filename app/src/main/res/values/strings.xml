@@ -15,4 +15,5 @@
     <string name="medium">Medium</string>
     <string name="low">Low</string>
     <string name="app_logo">app logo</string>
+    <string name="priority_level">Priority Level :</string>
 </resources>
