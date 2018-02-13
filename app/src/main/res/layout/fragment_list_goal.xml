@@ -4,7 +4,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cbanda.achieve.presentation.list.MainActivity$PlaceholderFragment">
+    tools:context="com.example.cbanda.achieve.presentation.list.GoalItemFragment">
 
     <TextView
         android:id="@+id/section_label"
@@ -17,6 +17,7 @@
         tools:layout_constraintTop_creator="1" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_goals"
         android:layout_width="368dp"
         android:layout_height="460dp"
         android:layout_marginEnd="8dp"
@@ -26,5 +27,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/list_item_goal" />
+
 
 </android.support.constraint.ConstraintLayout>
