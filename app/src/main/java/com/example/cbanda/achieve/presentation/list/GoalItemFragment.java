@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class GoalItemFragment extends Fragment {
     GoalListViewModel goalListViewModel;
     GoalsAdapter goalsAdapter;
     RecyclerView recyclerViewGoals;
-    RecyclerView.LayoutManager mLayoutManager;
+    LinearLayoutManager mLayoutManager;
 
     public GoalItemFragment() {
     }
@@ -55,7 +56,9 @@ public class GoalItemFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list_goal, container, false);
 
         recyclerViewGoals = view.findViewById(R.id.recycler_view_goals);
-        mLayoutManager = new LinearLayoutManager(this.getActivity());
+        mLayoutManager = new LinearLayoutManager(this.getActivity().getBaseContext());
+        DividerItemDecoration decoration = new DividerItemDecoration(recyclerViewGoals.getContext(), mLayoutManager.getOrientation());
+        recyclerViewGoals.addItemDecoration(decoration);
         recyclerViewGoals.setLayoutManager(mLayoutManager);
         recyclerViewGoals.setAdapter(goalsAdapter);
 
