@@ -22,6 +22,12 @@ public class GoalRepositoryImpl implements GoalRepository {
     }
 
     @Override
+    public LiveData<Goal> getGoalById(int id) {
+        return goalDao.getGoalById(id);
+    }
+
+
+    @Override
     public void addGoal(Goal goal) {
         new insertAsyncTask(goalDao).execute(goal);
         // goalDao.addGoal(goal);

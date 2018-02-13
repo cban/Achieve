@@ -14,5 +14,8 @@ public interface GoalRepository {
 
     LiveData<List<Goal>> getListGoals();
 
+    LiveData<Goal> getGoalById(int id);
+
     void addGoal(Goal goal);
+
 }

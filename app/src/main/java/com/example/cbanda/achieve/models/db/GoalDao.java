@@ -18,4 +18,6 @@ public interface GoalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addGoal(Goal goal);
 
+    @Query("SELECT * FROM goals WHERE id =:id")
+    LiveData<Goal> getGoalById(int id);
 }
