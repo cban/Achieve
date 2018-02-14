@@ -22,5 +22,4 @@
 
     <include layout="@layout/content_goal_detail" />
 
-
 </android.support.design.widget.CoordinatorLayout>

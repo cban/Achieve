@@ -118,11 +118,23 @@
             android:layout_marginBottom="8dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
-            android:text="DAYS LEFT :"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="NUMBER OF DAYS :"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textview_detail_end_date" />
+
+        <TextView
+            android:id="@+id/textview_days_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textview_detail_end_date"
+            tools:text="days " />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
