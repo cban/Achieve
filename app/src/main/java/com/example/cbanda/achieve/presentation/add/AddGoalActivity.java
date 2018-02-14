@@ -34,14 +34,18 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        initializeViews();
+        addGoalViewModel = ViewModelProviders.of(this).get(AddGoalViewModel.class);
+        SaveToDb();
+    }
+
+    private void initializeViews() {
         goalDescriptionEditText = findViewById(R.id.decription_edittext);
         startDateButton = findViewById(R.id.startDateButton);
         endDateButton = findViewById(R.id.endDateButton);
         saveButton = findViewById(R.id.save_button);
         priorityRadioGroup = findViewById(R.id.priority_radioGroup);
         datePickerFragment = new DatePickerFragment();
-        addGoalViewModel = ViewModelProviders.of(this).get(AddGoalViewModel.class);
-        SaveToDb();
     }
 
     public String getRadioButtonText() {
@@ -96,11 +100,8 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, dayOfMonth);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        // DateTime dt = new DateTime(calendar.getTime());
-
 
         if (datePickerFragment.getFlag() == DatePickerFragment.FLAG_START_DATE) {
-            ;
             startDateButton.setText(format.format(calendar.getTime()));
             addGoalViewModel.setSelectedStartDate(calendar.getTime());
 

@@ -1,9 +1,13 @@
 package com.example.cbanda.achieve.presentation.list;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,6 +39,7 @@ public class GoalItemFragment extends Fragment {
     GoalsAdapter goalsAdapter;
     RecyclerView recyclerViewGoals;
     LinearLayoutManager mLayoutManager;
+    Goal goal;
     private List<Goal> goalList;
 
     public GoalItemFragment() {
@@ -47,9 +52,8 @@ public class GoalItemFragment extends Fragment {
 
 
         goalsAdapter = new GoalsAdapter(new ArrayList<Goal>(), SelectItemClicked());
-
-
         setupViewModels();
+        //  changePriorityColor();
 
     }
 
@@ -75,7 +79,14 @@ public class GoalItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_goal, container, false);
+        setupRecyclerView(view);
+        //     getGoalPriority(view);
 
+
+        return view;
+    }
+
+    private void setupRecyclerView(View view) {
         recyclerViewGoals = view.findViewById(R.id.recycler_view_goals);
         mLayoutManager = new LinearLayoutManager(this.getActivity().getBaseContext());
         DividerItemDecoration decoration = new DividerItemDecoration(recyclerViewGoals.getContext(), mLayoutManager.getOrientation());
@@ -84,18 +95,33 @@ public class GoalItemFragment extends Fragment {
         recyclerViewGoals.setAdapter(goalsAdapter);
 
 
-        return view;
     }
 
     private void setupViewModels() {
 
         goalListViewModel = ViewModelProviders.of(getActivity()).get(GoalListViewModel.class);
-        goalListViewModel.getGoals().observe(this, new Observer<List<Goal>>() {
+        LiveData<List<Goal>> goalsLiveDataObject = goalListViewModel.getGoals();
+
+        goalsLiveDataObject.observe(this, new Observer<List<Goal>>() {
             @Override
             public void onChanged(@Nullable List<Goal> goals) {
+
                 goalsAdapter.setGoals(goals);
+
             }
         });
+    }
+
+
+    public void changePriorityColor() {
+
+        LayerDrawable layerDrawable = (LayerDrawable) getResources()
+                .getDrawable(R.drawable.rectangle_stroke);
+        GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable
+                .findDrawableByLayerId(R.id.gradientDrawable);
+        if (goal.getPriority().contains("medium")) {
+            gradientDrawable.setColor(Color.GREEN);
+        }
     }
 
     @Override

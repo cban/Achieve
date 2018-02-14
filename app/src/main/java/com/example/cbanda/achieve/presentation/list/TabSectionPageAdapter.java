@@ -8,9 +8,9 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by CBanda on 2018/02/12.
  */
 
-public class SectionPageAdapter extends FragmentPagerAdapter {
+public class TabSectionPageAdapter extends FragmentPagerAdapter {
 
-    public SectionPageAdapter(FragmentManager fm) {
+    public TabSectionPageAdapter(FragmentManager fm) {
         super(fm);
     }
 

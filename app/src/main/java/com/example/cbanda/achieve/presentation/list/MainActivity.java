@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements InspirationFragme
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionPageAdapter mSectionsPagerAdapter;
+    private TabSectionPageAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements InspirationFragme
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionPageAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new TabSectionPageAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements InspirationFragme
         return super.onOptionsItemSelected(item);
     }
 
-    
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 

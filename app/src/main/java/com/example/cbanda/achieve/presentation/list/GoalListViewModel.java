@@ -14,6 +14,7 @@ import java.util.List;
 public class GoalListViewModel extends AndroidViewModel {
 
     private GoalRepository goalRepository;
+    private Goal goal;
 
     public GoalListViewModel(@NonNull Application application) {
         super(application);

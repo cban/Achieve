@@ -1,5 +1,8 @@
 package com.example.cbanda.achieve.presentation.list;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +22,10 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalViewHold
 
     private List<Goal> goals;
     CustomItemClickListener customItemClickListener;
+    public static final String MEDIUM = "Medium";
+    public static final String HIGH = "High";
+    public static final String LOW = "Low";
+
 
     public GoalsAdapter(List<Goal> goals, CustomItemClickListener listener) {
         this.goals = goals;
@@ -43,12 +50,24 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalViewHold
     @Override
     public void onBindViewHolder(final GoalViewHolder holder, int position) {
         if (goals != null) {
-
+            LayerDrawable layerDrawable = (LayerDrawable) holder.itemView.getContext().getResources()
+                    .getDrawable(R.drawable.rectangle_stroke);
+            GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable
+                    .findDrawableByLayerId(R.id.gradientDrawable);
 
             Goal goal = goals.get(position);
+            if (goal.getPriority().equalsIgnoreCase(HIGH) == true) {
+
+                gradientDrawable.setColor(Color.GREEN);
+            } else if (goal.getPriority().equalsIgnoreCase(MEDIUM) == true) {
+                gradientDrawable.setColor(Color.RED);
+            } else if (goal.getPriority().equalsIgnoreCase(LOW) == true) {
+                gradientDrawable.setColor(Color.YELLOW);
+            }
             holder.itemView.setTag(goal);
             holder.GoalTextView.setText(goal.getDescription());
             holder.PriorityTextView.setText(goal.getPriority());
+
 
         } else {
             // Covers the case of data not being ready yet.
