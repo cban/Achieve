@@ -2,6 +2,7 @@ package com.example.cbanda.achieve.presentation.add;
 
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.cbanda.achieve.R;
+import com.example.cbanda.achieve.presentation.list.MainActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -66,7 +68,8 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
                 addGoalViewModel.setPrioritySelected(getRadioButtonText());
                 addGoalViewModel.addGoal();
 
-                finish();
+                Intent intent = new Intent(AddGoalActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
