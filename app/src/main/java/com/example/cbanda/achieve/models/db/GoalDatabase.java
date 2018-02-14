@@ -5,9 +5,6 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-/**
- * Created by CBanda on 2018/02/07.
- */
 
 @Database(entities = {Goal.class}, version = 1)
 public abstract class GoalDatabase extends RoomDatabase {

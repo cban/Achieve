@@ -10,14 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.cbanda.achieve.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link InspirationFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link InspirationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class InspirationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

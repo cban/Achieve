@@ -4,9 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-/**
- * Created by CBanda on 2018/02/12.
- */
 
 public class TabSectionPageAdapter extends FragmentPagerAdapter {
 

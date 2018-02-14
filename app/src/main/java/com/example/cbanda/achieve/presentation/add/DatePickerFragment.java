@@ -8,11 +8,6 @@ import android.support.v4.app.DialogFragment;
 
 import java.util.Calendar;
 
-/**
- * Created by CBanda on 2018/02/07.
- */
-
-
 public class DatePickerFragment extends DialogFragment {
 
     public static final int FLAG_START_DATE = 0;

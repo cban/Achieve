@@ -6,9 +6,6 @@ import com.example.cbanda.achieve.models.db.Goal;
 
 import java.util.List;
 
-/**
- * Created by CBanda on 2018/02/07.
- */
 
 public interface GoalRepository {
 
