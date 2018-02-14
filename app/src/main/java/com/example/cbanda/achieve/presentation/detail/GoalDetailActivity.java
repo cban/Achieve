@@ -43,7 +43,6 @@ public class GoalDetailActivity extends AppCompatActivity {
                 textViewStartDate.setText(start_time.dayOfMonth().getAsText() + " " + start_time.monthOfYear().getAsText() + " " + start_time.year().getAsText());
                 textViewEndDate.setText(end_time.dayOfMonth().getAsText() + " " + end_time.monthOfYear().getAsText() + " " + end_time.year().getAsText());
                 textViewDaysLeft.setText(String.valueOf(days) + " Days");
-
             }
         });
     }

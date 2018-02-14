@@ -112,14 +112,17 @@
             tools:text="end date" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textview_number_of_days_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="4dp"
             android:text="NUMBER OF DAYS :"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textview_detail_end_date" />
@@ -132,7 +135,7 @@
             android:layout_marginTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textview_number_of_days_label"
             app:layout_constraintTop_toBottomOf="@+id/textview_detail_end_date"
             tools:text="days " />
 
