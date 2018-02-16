@@ -23,4 +23,6 @@
     <string name="start_date">Start Date :</string>
     <string name="end_date">End Date :</string>
     <string name="your_goals">Your Goals</string>
+    <string name="quote_of_the_day">Quote of The Day</string>
+    <string name="author">Author</string>
 </resources>

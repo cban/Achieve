@@ -80,9 +80,6 @@ public class GoalItemFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_goal, container, false);
         setupRecyclerView(view);
-        //     getGoalPriority(view);
-
-
         return view;
     }
 
@@ -114,7 +111,6 @@ public class GoalItemFragment extends Fragment {
 
 
     public void changePriorityColor() {
-
         LayerDrawable layerDrawable = (LayerDrawable) getResources()
                 .getDrawable(R.drawable.rectangle_stroke);
         GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable
