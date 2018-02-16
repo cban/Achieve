@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.cbanda.achieve.R;
 import com.example.cbanda.achieve.presentation.add.AddGoalActivity;
+import com.example.cbanda.achieve.presentation.inspiration.InspirationFragment;
 
 public class MainActivity extends AppCompatActivity implements InspirationFragment.OnFragmentInteractionListener {
 

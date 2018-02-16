@@ -1,8 +1,11 @@
-package com.example.cbanda.achieve.presentation.list;
+package com.example.cbanda.achieve.presentation.inspiration;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +14,8 @@ import android.widget.TextView;
 
 import com.example.cbanda.achieve.R;
 import com.example.cbanda.achieve.models.db.Quote;
-import com.example.cbanda.achieve.utilities.ApiUtils;
 import com.example.cbanda.achieve.models.repository.QuoteApiService;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.cbanda.achieve.utilities.ApiUtils;
 
 
 public class InspirationFragment extends Fragment {
@@ -26,7 +25,8 @@ public class InspirationFragment extends Fragment {
     private String mParam2;
     private TextView textViewInspiration;
     private TextView textViewAuthor;
-
+    InspirationViewModel inspirationViewModel;
+    Quote quote;
 
     private OnFragmentInteractionListener mListener;
 
@@ -36,6 +36,7 @@ public class InspirationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupViewModel();
         loadQuote();
     }
 
@@ -48,8 +49,27 @@ public class InspirationFragment extends Fragment {
         return view;
     }
 
+
+    public void setupViewModel() {
+        inspirationViewModel = ViewModelProviders.of(getActivity()).get(InspirationViewModel.class);
+    }
+
     public void loadQuote() {
-        quoteApiService.getQuotes().enqueue(new Callback<Quote>() {
+
+        inspirationViewModel.getQuote();
+        inspirationViewModel.quoteLiveData.observe(this, new Observer<Quote>() {
+            @Override
+            public void onChanged(@Nullable Quote quote) {
+                textViewInspiration.setText("\" " + quote.getQuoteText() + " \" ");
+                textViewAuthor.setText(quote.getQuoteAuthor());
+            }
+        });
+
+       /* if (quote != null) {
+            textViewInspiration.setText("\" " + quote.getQuoteText() + " \" ");
+            textViewAuthor.setText(quote.getQuoteAuthor());
+        }*/
+       /* quoteApiService.getQuotes().enqueue(new Callback<Quote>() {
             @Override
             public void onResponse(Call<Quote> call, Response<Quote> response) {
                 if (response.isSuccessful()) {
@@ -57,20 +77,15 @@ public class InspirationFragment extends Fragment {
                     textViewAuthor.setText(response.body().getQuoteAuthor());
                 }
             }
+
             @Override
             public void onFailure(Call<Quote> call, Throwable t) {
                 call.cancel();
             }
         });
-
+*/
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
