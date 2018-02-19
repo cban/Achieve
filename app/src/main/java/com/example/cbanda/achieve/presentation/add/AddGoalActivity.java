@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -100,9 +101,8 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, dayOfMonth);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = getCalendar(year, month, dayOfMonth);
+        SimpleDateFormat format = getSimpleDateFormat();
 
         if (datePickerFragment.getFlag() == DatePickerFragment.FLAG_START_DATE) {
             startDateButton.setText(format.format(calendar.getTime()));
@@ -112,6 +112,18 @@ public class AddGoalActivity extends AppCompatActivity implements DatePickerDial
             endDateButton.setText(format.format(calendar.getTime()));
             addGoalViewModel.setSelectedEndDate(calendar.getTime());
         }
+    }
+
+    @NonNull
+    public SimpleDateFormat getSimpleDateFormat() {
+        return new SimpleDateFormat("yyyy-MM-dd");
+    }
+
+    @NonNull
+    private Calendar getCalendar(int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+        return calendar;
     }
 
 
