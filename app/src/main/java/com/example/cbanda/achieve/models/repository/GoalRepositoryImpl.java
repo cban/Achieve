@@ -29,15 +29,13 @@ public class GoalRepositoryImpl implements GoalRepository {
 
     @Override
     public void addGoal(Goal goal) {
-        new insertAsyncTask(goalDao).execute(goal);
-        // goalDao.addGoal(goal);
+        new InsertAsyncTask(goalDao).execute(goal);
     }
 
-
-    private static class insertAsyncTask extends AsyncTask<Goal, Void, Void> {
+    private static class InsertAsyncTask extends AsyncTask<Goal, Void, Void> {
         private GoalDao mAsyncTaskDao;
 
-        insertAsyncTask(GoalDao dao) {
+        InsertAsyncTask(GoalDao dao) {
 
             mAsyncTaskDao = dao;
         }

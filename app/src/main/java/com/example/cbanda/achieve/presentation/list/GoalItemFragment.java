@@ -57,8 +57,8 @@ public class GoalItemFragment extends Fragment {
 
     }
 
-    public CustomItemClickListener SelectItemClicked() {
-        return new CustomItemClickListener() {
+    public customItemClickListener SelectItemClicked() {
+        return new customItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 Log.d(TAG, "clicked position:" + position);
@@ -80,9 +80,6 @@ public class GoalItemFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_goal, container, false);
         setupRecyclerView(view);
-        //     getGoalPriority(view);
-
-
         return view;
     }
 
@@ -114,7 +111,6 @@ public class GoalItemFragment extends Fragment {
 
 
     public void changePriorityColor() {
-
         LayerDrawable layerDrawable = (LayerDrawable) getResources()
                 .getDrawable(R.drawable.rectangle_stroke);
         GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable

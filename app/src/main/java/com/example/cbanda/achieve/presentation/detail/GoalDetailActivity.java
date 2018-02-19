@@ -36,8 +36,7 @@ public class GoalDetailActivity extends AppCompatActivity {
             public void onChanged(@Nullable Goal goal) {
                 DateTime start_time = new DateTime(goal.getStartDate());
                 DateTime end_time = new DateTime(goal.getEndDate());
-                long diffInMillis = end_time.getMillis() - start_time.getMillis();
-                long days = (diffInMillis / (60 * 60 * 24 * 1000));
+                long days = getDays(start_time, end_time);
                 textViewDetailDescription.setText(goal.getDescription());
                 textViewDetailPriority.setText(goal.getPriority());
                 textViewStartDate.setText(start_time.dayOfMonth().getAsText() + " " + start_time.monthOfYear().getAsText() + " " + start_time.year().getAsText());
@@ -45,6 +44,11 @@ public class GoalDetailActivity extends AppCompatActivity {
                 textViewDaysLeft.setText(String.valueOf(days) + " Days");
             }
         });
+    }
+
+    public long getDays(DateTime start_time, DateTime end_time) {
+        long diffInMillis = end_time.getMillis() - start_time.getMillis();
+        return (diffInMillis / (60 * 60 * 24 * 1000));
     }
 
     public void initializeViews() {

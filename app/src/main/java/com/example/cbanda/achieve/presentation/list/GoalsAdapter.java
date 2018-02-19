@@ -21,13 +21,13 @@ import static android.content.ContentValues.TAG;
 public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalViewHolder> {
 
     private List<Goal> goals;
-    CustomItemClickListener customItemClickListener;
+    com.example.cbanda.achieve.presentation.list.customItemClickListener customItemClickListener;
     public static final String MEDIUM = "Medium";
     public static final String HIGH = "High";
     public static final String LOW = "Low";
 
 
-    public GoalsAdapter(List<Goal> goals, CustomItemClickListener listener) {
+    public GoalsAdapter(List<Goal> goals, com.example.cbanda.achieve.presentation.list.customItemClickListener listener) {
         this.goals = goals;
         customItemClickListener = listener;
 
