@@ -1,7 +1,11 @@
 package com.example.cbanda.achieve;
 
 import com.example.cbanda.achieve.presentation.add.AddGoalActivity;
+import com.example.cbanda.achieve.presentation.detail.GoalDetailActivity;
 
+import junit.framework.Assert;
+
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -32,13 +36,14 @@ public class DatesUnitTest {
 
         assertEquals(expected, actual);
     }
-   /* @Test
-    public void shouldConvertStartAndEndTImeToDuration()
+
+    @Test
+    public void shouldConvertStartAndEndTImeToDurationInDays()
 
     {
         DateTime startTime = new DateTime(2018, 3, 25, 12, 0, 0, 0);
-        DateTime endTime = new DateTime(2018, 3, 26, 12, 0, 0, 0);
+        DateTime endTime = new DateTime(2018, 3, 27, 12, 0, 0, 0);
         GoalDetailActivity goalDetailActivity = new GoalDetailActivity();
-        Assert.assertTrue(goalDetailActivity.getDays(startTime, endTime) == 1);
-    }*/
+        Assert.assertTrue(goalDetailActivity.getDays(startTime, endTime) == 2);
+    }
 }

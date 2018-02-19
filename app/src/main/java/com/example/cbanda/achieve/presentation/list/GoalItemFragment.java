@@ -57,8 +57,8 @@ public class GoalItemFragment extends Fragment {
 
     }
 
-    public CustomItemClickListener SelectItemClicked() {
-        return new CustomItemClickListener() {
+    public customItemClickListener SelectItemClicked() {
+        return new customItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 Log.d(TAG, "clicked position:" + position);
