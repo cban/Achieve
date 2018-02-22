@@ -7,6 +7,9 @@ import com.example.cbanda.achieve.models.db.GoalDao;
 
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.functions.Action;
+
 public class GoalRepositoryImpl implements GoalRepository {
 
     private GoalDao goalDao;
@@ -27,8 +30,14 @@ public class GoalRepositoryImpl implements GoalRepository {
 
 
     @Override
-    public void addGoal(Goal goal) {
-        new InsertAsyncTask(goalDao).execute(goal);
+    public Completable addGoal(final Goal goal) {
+        return Completable.fromAction(new Action() {
+            @Override
+            public void run() throws Exception {
+                goalDao.addGoal(goal);
+            }
+        });
     }
+
 
 }

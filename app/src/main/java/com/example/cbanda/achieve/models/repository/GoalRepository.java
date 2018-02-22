@@ -6,6 +6,8 @@ import com.example.cbanda.achieve.models.db.Goal;
 
 import java.util.List;
 
+import io.reactivex.Completable;
+
 
 public interface GoalRepository {
 
@@ -13,6 +15,6 @@ public interface GoalRepository {
 
     LiveData<Goal> getGoalById(int id);
 
-    void addGoal(Goal goal);
+    Completable addGoal(Goal goal);
 
 }
