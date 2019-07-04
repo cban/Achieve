@@ -25,4 +25,7 @@
     <string name="your_goals">Your Goals</string>
     <string name="quote_of_the_day">Quote of The Day</string>
     <string name="author">Author</string>
+    <string name="start_date_full"> %1$s  %2$s  %3$s %4$s</string>
+    <string name="end_date_full">%1$s  %2$s  %3$s </string>
+    <string name="days_left">%1$d Days</string>
 </resources>

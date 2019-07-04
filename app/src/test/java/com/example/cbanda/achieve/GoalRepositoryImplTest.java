@@ -30,7 +30,7 @@ public class GoalRepositoryImplTest {
 
     @Test
     public void addGoal_TriggersDbAdd() {
-        Goal goal = FakeGoalDataGenerator.getFakeGoal();
+        Goal goal = FakeGoalDataGenerator.INSTANCE.getFakeGoal();
         mockRepository.addGoal(goal);
         verify(mockRepository).addGoal(goal);
     }
