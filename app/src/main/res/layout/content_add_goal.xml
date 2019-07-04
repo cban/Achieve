@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
 
@@ -172,5 +172,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
