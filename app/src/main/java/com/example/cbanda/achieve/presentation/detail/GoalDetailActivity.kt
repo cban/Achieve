@@ -33,7 +33,7 @@ class GoalDetailActivity : AppCompatActivity() {
             val days = getDays(startTime, endTime)
             textViewDetailDescription.text = goal.description
             textViewDetailPriority.text = goal.priority
-            textViewStartDate.text = getString(R.string.start_date_full, startTime.dayOfMonth(), startTime.dayOfMonth(), startTime.monthOfYear(), startTime.year().asText)
+            textViewStartDate.text = getString(R.string.start_date_full, startTime.dayOfMonth().asText, startTime.monthOfYear().asText, startTime.year().asText)
             textViewEndDate.text = getString(R.string.end_date_full, endTime.dayOfMonth().asText, endTime.monthOfYear().asText, endTime.year().asText)
             textViewDaysLeft.text = getString(R.string.days_left, days)
         })

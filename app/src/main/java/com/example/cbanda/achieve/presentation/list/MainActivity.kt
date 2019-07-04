@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity(), InspirationFragment.OnFragmentInteract
 
     private fun setUpViewPager() {
 
-        container.adapter = mSectionsPagerAdapter
-        mViewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
-        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+        view_pager.adapter = mSectionsPagerAdapter
+        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
+        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(view_pager))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

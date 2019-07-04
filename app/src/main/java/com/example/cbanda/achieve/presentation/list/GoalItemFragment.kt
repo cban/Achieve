@@ -53,13 +53,14 @@ class GoalItemFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_list_goal, container, false)
+        goalsAdapter = GoalsAdapter(ArrayList(), selectItemClicked(), requireContext())
         setupRecyclerView(view)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        goalsAdapter = GoalsAdapter(ArrayList(), selectItemClicked(), requireContext())
+
         setupViewModels()
         getGoals()
     }
@@ -76,7 +77,7 @@ class GoalItemFragment : Fragment() {
     }
 
     private fun setupViewModels() {
-        goalListViewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(GoalListViewModel::class.java)
+        goalListViewModel = ViewModelProviders.of(requireActivity()).get(GoalListViewModel::class.java)
     }
      private fun getGoals(){
         val goalsLiveDataObject = goalListViewModel.getGoals()
