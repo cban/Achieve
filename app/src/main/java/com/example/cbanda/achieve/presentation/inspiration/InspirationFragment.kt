@@ -41,12 +41,16 @@ class InspirationFragment : Fragment() {
     private fun loadQuote() {
         inspirationViewModel.getQuote()
         inspirationViewModel.quoteLiveData.observe(this, Observer { quote ->
-          quote.let {
-            textViewInspiration.text = String.format("\" %s \" ", quote.quoteText)
-            textViewAuthor.text = quote.quoteAuthor}
+                textViewInspiration.text = String.format("\" %s \" ", quote.quoteText)
+                textViewAuthor.text = quote.quoteAuthor
+
         })
     }
 
+    private fun displayError() {
+        inspirationViewModel.errorMessage.observe(this, Observer { error -> textViewInspiration.text = error.toString() })
+        textViewInspiration.text = inspirationViewModel.errorMessage.toString()
+    }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
